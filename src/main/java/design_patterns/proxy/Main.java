@@ -5,12 +5,10 @@ public class Main {
 
         System.out.println("without proxy:");
         IDatabase IDatabaseImpl = new DatabaseImpl("my_db");
-        IDatabaseImpl.connect();
+        IDatabaseImpl.connect(IDatabaseImpl.getDbName());
         System.out.println("via proxy:");
         IDatabase IDatabaseProxy = new DatabaseProxy(IDatabaseImpl);
-        IDatabaseProxy.connect();
-        System.out.println("proxy getDbName():");
-        System.out.println(IDatabaseProxy.getDbName());
+        IDatabaseProxy.connect(IDatabaseImpl.getDbName());
     }
 }
 
@@ -20,7 +18,5 @@ without proxy:
 Connected to: my_db
 via proxy:
 Connected to: localhost:port/my_db
-proxy getDbName():
-localhost:port/my_db
 
  */

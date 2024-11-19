@@ -6,14 +6,19 @@ package design_patterns.proxy;
 public class DatabaseProxy implements IDatabase {
 
     private final IDatabase IDatabase;
-    private final String baseUrl = "localhost:port/";
+    private final String URL = "localhost:port/";
 
     public DatabaseProxy(IDatabase IDatabase) {
         this.IDatabase = IDatabase;
     }
 
     @Override
+    public void connect(String dbName) {
+        System.out.println("Connected to: " + URL + dbName);
+    }
+
+    @Override
     public String getDbName() {
-        return baseUrl + IDatabase.getDbName();
+        return IDatabase.getDbName();
     }
 }

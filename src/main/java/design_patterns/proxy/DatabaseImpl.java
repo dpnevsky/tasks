@@ -9,6 +9,11 @@ public class DatabaseImpl implements IDatabase {
     }
 
     @Override
+    public void connect(String dbName) {
+        System.out.println("Connected to: " + dbName);
+    }
+
+    @Override
     public String getDbName() {
         return dbName;
     }

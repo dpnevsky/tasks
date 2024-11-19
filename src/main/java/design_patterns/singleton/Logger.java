@@ -7,7 +7,7 @@ import java.util.Date;
 //classLogg(Object obj, String info)
 public class Logger {
 
-    private static Logger instance;
+    private static volatile Logger instance;
 
     private Logger() {}
 
